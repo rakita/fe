@@ -1,0 +1,4 @@
+(function() {var implementors = {};
+implementors["fe_analyzer"] = [{"text":"impl QueryGroup for <a class=\"struct\" href=\"fe_analyzer/db/struct.AnalyzerDbStorage.html\" title=\"struct fe_analyzer::db::AnalyzerDbStorage\">AnalyzerDbStorage</a>","synthetic":false,"types":["fe_analyzer::db::AnalyzerDbStorage"]}];
+implementors["fe_lowering"] = [{"text":"impl QueryGroup for <a class=\"struct\" href=\"fe_lowering/db/struct.LoweringDbStorage.html\" title=\"struct fe_lowering::db::LoweringDbStorage\">LoweringDbStorage</a>","synthetic":false,"types":["fe_lowering::db::LoweringDbStorage"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["create","Executes the `create` operation for a given contract with the given value."],["create2","Executes the `create2` operation for a given contract with the given value and salt."]]});

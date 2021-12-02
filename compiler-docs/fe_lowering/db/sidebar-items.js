@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["LoweredIngotQuery",""],["LoweredModuleQuery",""],["LoweringDbGroupStorage__",""],["LoweringDbStorage","Representative struct for the query group."],["TestDb",""]],"trait":[["LoweringDb",""]]});

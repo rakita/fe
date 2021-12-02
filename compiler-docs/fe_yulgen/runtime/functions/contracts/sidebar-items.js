@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["all","Return all contacts runtime functions"],["create","Function that executes the `create` operation."],["create2","Function that executes the `create2` operation."],["send_value","Function that sends wei from the contract to another address"]]});
