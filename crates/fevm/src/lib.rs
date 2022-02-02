@@ -103,10 +103,10 @@ impl Fevm<'_> {
         }
     }
 
-    pub fn reset(&mut self) {
-        self.inner = Mutex::new(revm::new());
-        self.contracts = HashMap::new();
-    }
+    // pub fn reset(&mut self) {
+    //     self.inner = Mutex::new(revm::new());
+    //     self.contracts = HashMap::new();
+    // }
     pub fn call(&self, input: Vec<u8>, addr: &Address, caller: &Caller) -> CallResult {
         let mut vm = self.inner.lock().unwrap();
         vm.env.tx.caller = caller.0;

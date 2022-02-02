@@ -181,42 +181,43 @@ proptest! {
     fn math_u8(val in 0u8..=255, val2 in 0u8..=255) {
     
             let alice = Caller::random();
-            let fevm = &DIFF_VM;
-            fevm.create_account(&alice, 2000_u64);
+            //let fevm = &DIFF_VM;
             let fe_contract = DIFF_CONTRACTS[1].0.clone();
-            let fe_contract = fe_contract.deploy(&alice, &[]);
             let sol_contract = DIFF_CONTRACTS[1].1.clone();
-            let sol_contract = sol_contract.deploy(&alice, &[]);
-            let harness = Harness {
-                fe: fe_contract,
-                sol: sol_contract,
-            };
+
+            //fevm.create_account(&alice, 2000_u64);
+            //let fe_contract = fe_contract.deploy(&alice, &[]);
+            //let sol_contract = sol_contract.deploy(&alice, &[]);
+            // let harness = Harness {
+            //     fe: fe_contract,
+            //     sol: sol_contract,
+            // };
   
-            harness.capture_call("add", &[uint_token(val.into()), uint_token(val2.into())], &alice)
-            .assert_return_data_equal()
-            .assert_fe_max_percentage_more_gas(5); 
+            // harness.capture_call("add", &[uint_token(val.into()), uint_token(val2.into())], &alice)
+            // .assert_return_data_equal()
+            // .assert_fe_max_percentage_more_gas(5); 
          
 
-            harness.capture_call("add", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(5);
-            harness.capture_call("subtract", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(5);
-            harness.capture_call("divide", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(100);
-            harness.capture_call("multiply", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(5);
-            harness.capture_call("pow", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(15);
-            harness.capture_call("modulo", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(25);
-            harness.capture_call("leftshift", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(25);
-            harness.capture_call("rightshift", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(25);
-            harness.capture_call("order_of_operation", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(50);
-            harness.capture_call("invert", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(60);
-            harness.capture_call( "bit_and", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(15);
-            harness.capture_call( "bit_or", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(50);
-            harness.capture_call( "bit_xor", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(30);
-            harness.capture_call( "cast1", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(50);
-            harness.capture_call( "cast2", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(60);
-            harness.capture_call( "cast3", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(70);
-            harness.capture_call( "sqrt", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(120);
+    //         harness.capture_call("add", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(5);
+    //         harness.capture_call("subtract", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(5);
+    //         harness.capture_call("divide", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(100);
+    //         harness.capture_call("multiply", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(5);
+    //         harness.capture_call("pow", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(15);
+    //         harness.capture_call("modulo", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(25);
+    //         harness.capture_call("leftshift", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(25);
+    //         harness.capture_call("rightshift", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(25);
+    //         harness.capture_call("order_of_operation", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(50);
+    //         harness.capture_call("invert", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(60);
+    //         harness.capture_call( "bit_and", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(15);
+    //         harness.capture_call( "bit_or", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(50);
+    //         harness.capture_call( "bit_xor", &[uint_token(val.into()), uint_token(val2.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(30);
+    //         harness.capture_call( "cast1", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(50);
+    //         harness.capture_call( "cast2", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(60);
+    //         harness.capture_call( "cast3", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(70);
+    //         harness.capture_call( "sqrt", &[uint_token(val.into())], &alice).assert_perfomed_equal().assert_fe_max_percentage_more_gas(120);
     }
 
-    #[test]
+    //#[test]
     fn math_i8(val in -128i8..=127i8, val2 in -128i8..=127i8, val3 in 0u8..=255) {
             let alice = Caller::random();
             let fevm = &DIFF_VM;
@@ -245,7 +246,7 @@ proptest! {
             harness.capture_call("negate", &[int_token(val.into())], &alice).assert_perfomed_equal();
     }
 
-    #[test]
+    //#[test]
     fn storage_and_memory(my_num in 0u64..=100000,
                           my_num2 in 0u8..=255, my_bool in any::<bool>(),
                           my_str in "[0-9]{20}",
